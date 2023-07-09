@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Profile from './Auth'
 import reportWebVitals from './reportWebVitals';
-import Chat from "./Chat";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

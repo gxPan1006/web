@@ -4,6 +4,10 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import Chat from "./Chat";
 import LoginPage from "./loginPage";
+import axios from "axios";
+
+// const token = localStorage.getItem('token');
+axios.defaults.headers.common['Authorization'] = `Bearer token`;
 
 function HomePage() {
     const [weatherData, setWeatherData] = useState(null);

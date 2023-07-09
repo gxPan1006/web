@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-function LoginPage() {
-    // Create your login form here   nhh
+function LoginForm() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const response = await axios.post('http://localhost:8080/login', { username, password });
+        localStorage.setItem('token', response.data.token);
+    };
+
     return (
-        <div className="center-content">
-            <h2>Login Page</h2>
-            <form>
-                <label>
-                    Username:
-                    <input type="text" name="username" />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input type="password" name="password" />
-                </label>
-                <br />
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+            />
+            <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+            />
+            <button type="submit">Login</button>
+        </form>
     );
 }
 
-export default LoginPage;
+export default LoginForm;

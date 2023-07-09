@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import logo from './doggy.png';
+import logo from './assets/doggy.png';
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Chat from "./Chat";
-import LoginPage from "./loginPage";
+import Chat from "./components/Chat";
+import LoginPage from "./components/loginPage";
 import axios from "axios";
 
 // const token = localStorage.getItem('token');
